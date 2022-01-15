@@ -11,4 +11,7 @@ public interface UserService {
 
     // select * from user where id = {id}
     User listById(int id);
+
+    // update user set salary = {salary} where id = {id}
+    User updateSalaryById(int id, Long salary);
 }

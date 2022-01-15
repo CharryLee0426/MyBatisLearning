@@ -10,4 +10,7 @@
     <select id="listById" resultType="com.lichen.mybatislearning.entity.User">
         select * from user u where u.id = #{id}
     </select>
+    <select id="updateSalaryById" resultType="com.lichen.mybatislearning.entity.User">
+        update user set salary = #{salary} where id = #{id}
+    </select>
 </mapper>

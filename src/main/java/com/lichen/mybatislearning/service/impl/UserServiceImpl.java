@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
     public User listById(int id) {
         return userDao.listById(id);
     }
+
+    @Override
+    public User updateSalaryById(int id, Long salary) {
+        userDao.updateSalaryById(id, salary);
+        return userDao.listById(id);
+    }
 }

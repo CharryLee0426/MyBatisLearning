@@ -3,10 +3,7 @@ package com.lichen.mybatislearning.controller;
 import com.lichen.mybatislearning.entity.User;
 import com.lichen.mybatislearning.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,10 @@ public class UserController {
     @GetMapping("/{id}")
     public  User getById(@PathVariable int id) {
         return  userService.listById(id);
+    }
+    @GetMapping("/update/salary")
+    public User updateSalaryById(@RequestParam(value = "id", required = true) int id,
+                                 @RequestParam(value = "salary", required = true) Long salary) {
+        return userService.updateSalaryById(id, salary);
     }
 }

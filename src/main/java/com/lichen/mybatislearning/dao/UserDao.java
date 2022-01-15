@@ -15,4 +15,7 @@ public interface UserDao {
 
     // 根据 Id 返回用户资料
     User listById(@Param("id") int id);
+
+    // 根据 id 更新用户的工资信息,返回修改后的值
+    User updateSalaryById(@Param("id") int id, @Param("salary") Long salary);
 }
