@@ -7,4 +7,7 @@
     <select id="listAll" resultType="com.lichen.mybatislearning.entity.User">
         select u.id, u.name, u.salary from user u
     </select>
+    <select id="listById" resultType="com.lichen.mybatislearning.entity.User">
+        select * from user u where u.id = #{id}
+    </select>
 </mapper>

@@ -1,0 +1,6 @@
+2022-01-15 15:22:33.505  INFO 34667 --- [restartedMain] c.l.m.MybatisLearningApplication         : Starting MybatisLearningApplication using Java 1.8.0_292 on lichendeMacBook-Pro.local with PID 34667 (/Users/lichen/IdeaProjects/MybatisLearning/target/classes started by lichen in /Users/lichen/IdeaProjects/MybatisLearning)
+2022-01-15 15:22:33.505  INFO 34667 --- [restartedMain] c.l.m.MybatisLearningApplication         : No active profile set, falling back to default profiles: default
+2022-01-15 15:22:34.266  INFO 34667 --- [restartedMain] c.l.m.MybatisLearningApplication         : Started MybatisLearningApplication in 0.938 seconds (JVM running for 1.369)
+2022-01-15 17:37:25.033  INFO 35199 --- [restartedMain] c.l.m.MybatisLearningApplication         : Starting MybatisLearningApplication using Java 1.8.0_292 on lichendeMacBook-Pro.local with PID 35199 (/Users/lichen/IdeaProjects/MybatisLearning/target/classes started by lichen in /Users/lichen/IdeaProjects/MybatisLearning)
+2022-01-15 17:37:25.033  INFO 35199 --- [restartedMain] c.l.m.MybatisLearningApplication         : No active profile set, falling back to default profiles: default
+2022-01-15 17:37:25.928  INFO 35199 --- [restartedMain] c.l.m.MybatisLearningApplication         : Started MybatisLearningApplication in 1.155 seconds (JVM running for 1.474)
