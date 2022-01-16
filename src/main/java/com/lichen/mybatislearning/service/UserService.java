@@ -20,4 +20,8 @@ public interface UserService {
 
     // insert into user value (...)
     String addUser(int id, String name, Long salary, int dep_id);
+
+    // select u.id, u.salary, u.dep_id, d.name from user u left join
+    // department d where u.dep_id = d.id order by u.id
+    List<User> listAllInfo();
 }

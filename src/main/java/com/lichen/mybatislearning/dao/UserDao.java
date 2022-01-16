@@ -25,4 +25,7 @@ public interface UserDao {
     // 添加新用户
     void addUser(@Param("id") int id, @Param("name") String name,
                  @Param("salary") Long salary, @Param("depid") int dep_id);
+
+    // 查询所有用户的全部信息（即包括部门信息）
+    List<User> listAllInfo();
 }

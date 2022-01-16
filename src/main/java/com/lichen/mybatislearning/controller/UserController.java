@@ -5,6 +5,7 @@ import com.lichen.mybatislearning.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 @RestController
@@ -40,5 +41,10 @@ public class UserController {
                           @RequestParam(value = "salary", required = true) Long salary,
                           @RequestParam(value = "depid", required = true) int dep_id) {
         return userService.addUser(id, name, salary, dep_id);
+    }
+
+    @GetMapping("/listAll")
+    public List<User> listAllInfo() {
+        return userService.listAllInfo();
     }
 }

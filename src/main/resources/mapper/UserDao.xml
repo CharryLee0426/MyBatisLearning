@@ -5,7 +5,7 @@
 
 <mapper namespace="com.lichen.mybatislearning.dao.UserDao">
     <select id="listAll" resultType="com.lichen.mybatislearning.entity.User">
-        select u.id, u.name, u.salary from user u
+        select * from user u
     </select>
 
     <select id="listById" resultType="com.lichen.mybatislearning.entity.User">
@@ -25,4 +25,21 @@
         (id, name, salary, dep_id)
         value (#{id}, #{name}, #{salary}, #{depid})
     </insert>
+
+    <select id="listAllInfo" resultMap="UserAndDepartment">
+        select u.*, d.name as dep_name
+        from user as u left join department d
+        on u.dep_id = d.id
+        order by u.id;
+    </select>
+
+    <resultMap id="UserAndDepartment" type="com.lichen.mybatislearning.entity.User">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="salary" column="salary" />
+        <association property="department" javaType="com.lichen.mybatislearning.entity.Department">
+            <id property="id" column="dep_id" />
+            <result property="name" column="dep_name" />
+        </association>
+    </resultMap>
 </mapper>

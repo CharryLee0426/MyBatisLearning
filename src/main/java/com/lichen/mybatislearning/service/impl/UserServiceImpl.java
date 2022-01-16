@@ -48,4 +48,9 @@ public class UserServiceImpl implements UserService {
         }
         return "Add User Success";
     }
+
+    @Override
+    public List<User> listAllInfo() {
+        return userDao.listAllInfo();
+    }
 }

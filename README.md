@@ -42,6 +42,25 @@ When you get params in your methods, you can use `#{0}, #{1}, #{2}...`
 or `#{param1}, #{param2}, #{param3}...` to find params one by one. But we usually use annotation `@Param("name"")` to
 give the param unique name. After that, you should use `#{name}` but not `#{0}`.
 
+Also, mybatis provide another param format called `${}`.
+It's different from `#{}`.
+For example, there is a param `title = "Manager"`,
+when you create SQL in mybatis:
+```yaml
+<select id="searchByTitle" resultType="com.xx.xx">
+select * from Blog where title = '%#{title}%'
+</select>
+```
+In fact, mybatis will excute the following SQL:
+```mysql
+select * from Blog where title = '%'Manager'%';
+```
+There is an error.
+When you use `#{}`, mybatis will add **'** if param is String.
+Usually it's safer because it can keep us from SQL injection.
+However, you had better use `${}` when you do something above.
+
+
 `/rest/user/update?id=1&salary=20000`'s response data.
 ![](images/update.png)
 
@@ -53,6 +72,24 @@ When you excute `/rest/user/delete/{id}` successfully, you will see this respons
 
 After delete, you can excute '/rest/user/list' to check if your delete really done at database.
 ![](images/after%20delete.png)
+
+#### 4.4 Join
+There are many situations that you may search something through many tables.
+Therefore, `join` is a syntax that you must use. There are some ways
+to join many tables through mybatis. However, it's a more friendly way
+to use `resultmap`.
+
+`<resultMap>` can package some records to a certain object.
+
+`<result property="{propNmae}" column="colName">`
+means that let records' value in column 'colName' be the value in object's property 'propName'.
+
+`<association>` can package some values to a class property of object.
+
+`<collection>` can solve the List<someclass> properties' package problem.
+
+When you excute '/rest/user/listAll', you'll see that:
+![](images/join.png)
 
 
 ### 5. RESTful Controller
