@@ -18,4 +18,11 @@ public interface UserDao {
 
     // 根据 id 更新用户的工资信息,返回修改后的值
     User updateSalaryById(@Param("id") int id, @Param("salary") Long salary);
+
+    // 根据 id 删除用户
+    void deleteById(@Param("id") int id);
+
+    // 添加新用户
+    void addUser(@Param("id") int id, @Param("name") String name,
+                 @Param("salary") Long salary, @Param("depid") int dep_id);
 }

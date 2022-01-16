@@ -28,4 +28,24 @@ public class UserServiceImpl implements UserService {
         userDao.updateSalaryById(id, salary);
         return userDao.listById(id);
     }
+
+    @Override
+    public String deleteById(int id) {
+        try {
+            userDao.deleteById(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return "Delete Success!";
+    }
+
+    @Override
+    public String addUser(int id, String name, Long salary, int dep_id) {
+        try {
+            userDao.addUser(id, name, salary, dep_id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return "Add User Success";
+    }
 }

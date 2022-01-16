@@ -7,10 +7,22 @@
     <select id="listAll" resultType="com.lichen.mybatislearning.entity.User">
         select u.id, u.name, u.salary from user u
     </select>
+
     <select id="listById" resultType="com.lichen.mybatislearning.entity.User">
         select * from user u where u.id = #{id}
     </select>
+
     <select id="updateSalaryById" resultType="com.lichen.mybatislearning.entity.User">
         update user set salary = #{salary} where id = #{id}
     </select>
+
+    <delete id="deleteById">
+        delete from user where id = #{id}
+    </delete>
+
+    <insert id="addUser">
+        insert into user
+        (id, name, salary, dep_id)
+        value (#{id}, #{name}, #{salary}, #{depid})
+    </insert>
 </mapper>

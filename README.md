@@ -31,6 +31,9 @@ There are 2 examples about how to select some records of table user.
 We should use `<select>`. `<select>` has two important properties: id and resultType.
 Id must refer to the Dao's method name. ResultType must refer to an entity class.
 
+`/rest/user/list`'s response data(JSON format).
+![](images/list.png)
+
 #### 4.2 Insert and Update
 `<insert>` and `<update>` don't have property resultType.
 So, you should use `<select>` if you want to return something when you update or insert.
@@ -38,6 +41,18 @@ So, you should use `<select>` if you want to return something when you update or
 When you get params in your methods, you can use `#{0}, #{1}, #{2}...`
 or `#{param1}, #{param2}, #{param3}...` to find params one by one. But we usually use annotation `@Param("name"")` to
 give the param unique name. After that, you should use `#{name}` but not `#{0}`.
+
+`/rest/user/update?id=1&salary=20000`'s response data.
+![](images/update.png)
+
+#### 4.3 Delete
+`<delete>` is perhaps most simple tags in mybatis. You just claim the id and write sql.
+
+When you excute `/rest/user/delete/{id}` successfully, you will see this response.
+![](images/delete.png)
+
+After delete, you can excute '/rest/user/list' to check if your delete really done at database.
+![](images/after%20delete.png)
 
 
 ### 5. RESTful Controller
