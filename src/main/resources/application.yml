@@ -5,7 +5,7 @@ spring:
     url: jdbc:mysql://localhost:3306/Mybatis
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: aaa
+    password: admin
 
 mybatis:
   type-aliases-package: com.lichen.mybatislearning.entity
@@ -16,4 +16,4 @@ logging:
     root: warn
     com.lichen: info
   file:
-    path: /log/test.log
+    name: ./log/mybatis.log    # logging.file.name 的优先级要比 logging.file.path 的优先级更高，两个配置同时出现时不会一起生效。
