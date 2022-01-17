@@ -23,8 +23,18 @@ Mapper-locations tells the system where the mapper files are.
 Then you can create .xml mapper files and dao class. You must add `@Mapper` for each dao class, or add `@MapperScan(basepackages="{your dao package}")` in entry class.
 
 ### 4. Mapper File
-The mapper file is the solution that make sql easy in Java. Usually, iy's a .xml file. You can write sql so that the Dao interface
+The mapper file is the solution that make sql easy in Java. Usually, it's a .xml file. You can write sql so that the Dao interface
 can find the sql in mapper file and excute it.
+
+**Important:** you must added these tags before you write mapper
+if you don't use any mybatis plugin.
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+```
 
 #### 4.1 Select
 There are 2 examples about how to select some records of table user.
@@ -46,7 +56,7 @@ Also, mybatis provide another param format called `${}`.
 It's different from `#{}`.
 For example, there is a param `title = "Manager"`,
 when you create SQL in mybatis:
-```yaml
+```xml
 <select id="searchByTitle" resultType="com.xx.xx">
 select * from Blog where title = '%#{title}%'
 </select>
