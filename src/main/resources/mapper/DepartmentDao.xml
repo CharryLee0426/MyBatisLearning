@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lichen.mybatislearning.dao.DepartmentDao">
+    <select id="list" resultType="com.lichen.mybatislearning.entity.Department">
+        select * from department
+    </select>
+
+    <select id="listUserByDepId" resultMap="User">
+        select u.id as uid, u.name as uname,
+               u.salary as usalary,
+               d.id, d.name
+        from user u join department d
+        on u.dep_id = d.id
+        where d.id = #{dep_id}
+    </select>
+
+    <resultMap id="User" type="com.lichen.mybatislearning.entity.User">
+        <id property="id" column="uid" />
+        <result property="name" column="uname" />
+        <result property="salary" column="usalary" />
+        <association property="department" javaType="com.lichen.mybatislearning.entity.Department">
+            <id property="id" column="id" />
+            <result property="name" column="name" />
+        </association>
+    </resultMap>
+</mapper>

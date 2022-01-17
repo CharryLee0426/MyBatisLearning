@@ -2,15 +2,18 @@ package com.lichen.mybatislearning.controller;
 
 import com.lichen.mybatislearning.entity.User;
 import com.lichen.mybatislearning.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 @RestController
 @RequestMapping("/rest/user")
 public class UserController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private UserService userService;
 
@@ -45,6 +48,17 @@ public class UserController {
 
     @GetMapping("/listAll")
     public List<User> listAllInfo() {
-        return userService.listAllInfo();
+        List<User> users = userService.listAllInfo();
+
+        // show how to print something to logg
+        // we must use slf4j's logger in default configuration.
+        for (User user : users) {
+            logger.warn("{user.name is " + user.getName() + "}");
+            logger.warn("{user.salary is " + user.getSalary() + "}");
+            logger.warn("{user.department_id is" + user.getDepartment().getId() + "}");
+            logger.warn("{user.department_nmae is " + user.getDepartment().getName() +"}");
+            logger.warn("");
+        }
+        return users;
     }
 }

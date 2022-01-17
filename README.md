@@ -91,6 +91,25 @@ means that let records' value in column 'colName' be the value in object's prope
 When you excute '/rest/user/listAll', you'll see that:
 ![](images/join.png)
 
+#### 4.5 Relation
+It's easy to search something if two entities are OneToOne relation or OneToMany relation.
+And I realize that it's better to make a resultMap for each entity before writing SQL.
+when you face the situation that two entities are ManyToMany relation, you must create another
+table to record their relation. And you must use `<collection>` to make resultMap.
+
+The most difficult part of mybatis is that you must claim the specific package method for each
+entity. Therefore, `mybatis-generator` and `mybatis-plus` are
+getting more and more popular because you can use them to build resultMap or other regular parts automatically so that
+you can write less code and focus on SQL.
+
+The advantage of mybatis I think is that you can easily write sql in mapper file.
+it's easy to build dynamic sql function. Alo, it's very simple to understand.
+In China, most companies and developers prefer to use mybatis as their projects' persistance
+framework. But Spring Official and many foreign companies use Spring Data JPA.
+I also have some experience about JPA, it's easy to create table and can do many things without SQL.
+It's not so easy to excute some complex queries. Both 2 frameworks are great enough, you
+can just choose one for your learning.
+
 
 ### 5. RESTful Controller
 RESTful Controller is different from Controller. It can't return a html file(such as `login.html`).
