@@ -107,6 +107,16 @@ And I realize that it's better to make a resultMap for each entity before writin
 when you face the situation that two entities are ManyToMany relation, you must create another
 table to record their relation. And you must use `<collection>` to make resultMap.
 
+There is no necessary to build an entire object when you search something.
+For example, when I search all the blogs belong to specific tag,
+I don't need to build the entire blog object, because object blog also have an attribute
+called tags.
+
+When I excute `/rest/tag/listblog?tid=1`, I only construct blogs which don't have attribute tags.
+
+Here is the result:
+![](images/manytomany.png)
+
 The most difficult part of mybatis is that you must claim the specific package method for each
 entity. Therefore, `mybatis-generator` and `mybatis-plus` are
 getting more and more popular because you can use them to build resultMap or other regular parts automatically so that

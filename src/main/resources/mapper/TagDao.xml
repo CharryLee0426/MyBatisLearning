@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lichen.mybatislearning.dao.TagDao">
+    <select id="listBlogByTagId" resultMap="Tag">
+        select t.id, t.name,
+               b.id as bid, b.title as btitle
+        from blog b join blog_tag bt join tag t
+        on b.id = bt.blog_id and t.id = bt.tag_id
+        where t.id = #{tagid}
+    </select>
+
+    <resultMap id="Tag" type="com.lichen.mybatislearning.entity.Tag">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <collection property="blogs" ofType="com.lichen.mybatislearning.entity.Blog">
+            <id property="id" column="bid" />
+            <result property="title" column="btitle" />
+        </collection>
+    </resultMap>
+</mapper>
