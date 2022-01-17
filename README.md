@@ -80,7 +80,7 @@ However, you had better use `${}` when you do something above.
 When you excute `/rest/user/delete/{id}` successfully, you will see this response.
 ![](images/delete.png)
 
-After delete, you can excute '/rest/user/list' to check if your delete really done at database.
+After delete, you can excute `/rest/user/list` to check if your delete really done at database.
 ![](images/after%20delete.png)
 
 #### 4.4 Join
@@ -98,7 +98,7 @@ means that let records' value in column 'colName' be the value in object's prope
 
 `<collection>` can solve the List<someclass> properties' package problem.
 
-When you excute '/rest/user/listAll', you'll see that:
+When you excute `/rest/user/listAll`, you'll see that:
 ![](images/join.png)
 
 #### 4.5 Relation
