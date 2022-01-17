@@ -10,6 +10,9 @@ I use IDEA to create my project. You can just select `spring boot web`, `mybatis
 Then, you must wait for IDE solve the dependencies to build the project. The entry point has an annotation called `@SpringBootApplication`.
 After these, you can create entity, dao, service and controller.
 
+**Import: you must excute create.sql and change application.xml's database
+password to your own password.**
+
 ### 3. Configution
 Firstly, you shoud add some mybatis configutions to `application.yml`.
 ```yaml
